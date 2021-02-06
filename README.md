@@ -1,3 +1,5 @@
-# Задание №1
+# Р—Р°РґР°РЅРёРµ в„–1
 
-**Запуск теста:** *homework_1\src\test\java\PracticeFormTest.java*
+**РџСЂРѕРІРµСЂРєР° СЃС‚СЂР°РЅРёС†С‹ https://demoqa.com/automation-practice-form**
+
+**Р—Р°РїСѓСЃРє С‚РµСЃС‚Р°:** *homework_1\src\test\java\PracticeFormTest.java*
