@@ -1,5 +1,9 @@
-# Задание №1
+# Задание №2
 
-**Проверка страницы https://demoqa.com/automation-practice-form**
+##**Проверка страницы SoftAssertions**
 
-**Запуск теста:** *homework_1\src\test\java\PracticeFormTest.java*
+**Запуск теста:** *homework_1\src\test\java\GitHubPage.java*
+
+##**Проверка страницы метода Drag&Drop**
+
+**Запуск теста:** *homework_1\src\test\java\DragNDropPage.java*
