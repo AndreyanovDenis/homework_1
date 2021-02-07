@@ -1,4 +1,5 @@
 import com.github.javafaker.Faker;
+
 import config.BaseTest;
 import org.junit.jupiter.api.Test;
 
@@ -10,6 +11,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
 public class PracticeFormTest extends BaseTest {
+
     Faker faker = new Faker();
 
     String firstName = faker.name().firstName(),
@@ -44,7 +46,7 @@ public class PracticeFormTest extends BaseTest {
         gender = genderArray[index];
 
         //Генерируем случайный год
-        yearInt = generateRandomInt(1900, 2100);
+        yearInt = Utils.generateRandomInt(1900, 2100);
         year = Integer.toString(yearInt);
 
         //Генерируем случайный месяц
@@ -53,12 +55,11 @@ public class PracticeFormTest extends BaseTest {
         month = mouthArray[mouthInt];
 
         //Генерируем случайный день
-        dayInt = generateRandomInt(1, 28);
+        dayInt = Utils.generateRandomInt(1, 28);
         day = Integer.toString(dayInt);
         //Проверяем число - если в числе меньше двух разрядов, то добавляем в строку 0
         if (dayInt < 10) {
             day = "0" + day;
-            System.out.println(day);
         }
 
         //Выбираем случайный subject
@@ -77,14 +78,14 @@ public class PracticeFormTest extends BaseTest {
         state = stateArray[intState];
 
         //В зависимости от штата выбираем город
-        city = getCityByState(state);
+        city = Utils.getCityByState(state);
 
         //Заполняем поля
-        setText("#firstName", firstName);
-        setText("#lastName", lastName);
-        setText("#userEmail", email);
+        Utils.setText("#firstName", firstName);
+        Utils.setText("#lastName", lastName);
+        Utils.setText("#userEmail", email);
         $("#genterWrapper").$(byText(this.gender)).click();
-        setText("#userNumber", phone);
+        Utils.setText("#userNumber", phone);
 
         //Работа с календарем
         $("#dateOfBirthInput").click();
@@ -100,7 +101,7 @@ public class PracticeFormTest extends BaseTest {
         $("#uploadPicture").uploadFile(new File(filepath + filename));
 
         //Заполнение адреса
-        setText("#currentAddress", currentAddress);
+        Utils.setText("#currentAddress", currentAddress);
         $("#react-select-3-input").setValue(state).pressEnter();
         $("#react-select-4-input").setValue(city).pressEnter();
 
@@ -109,16 +110,16 @@ public class PracticeFormTest extends BaseTest {
 
         //Проверяем заполнение анкеты
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
-        checkTable("Student name", firstName + " " + lastName);
-        checkTable("Student Email", email);
-        checkTable("Gender", this.gender);
-        checkTable("Mobile", phone);
-        checkTable("Date of Birth", day + " " + month + "," + year);
-        checkTable("Subjects", subject);
-        checkTable("Hobbies", hobbies);
-        checkTable("Picture", filename);
-        checkTable("Address", currentAddress);
-        checkTable("State and City", state + " " + city);
+        Utils.checkTable("Student name", firstName + " " + lastName);
+        Utils.checkTable("Student Email", email);
+        Utils.checkTable("Gender", this.gender);
+        Utils.checkTable("Mobile", phone);
+        Utils.checkTable("Date of Birth", day + " " + month + "," + year);
+        Utils.checkTable("Subjects", subject);
+        Utils.checkTable("Hobbies", hobbies);
+        Utils.checkTable("Picture", filename);
+        Utils.checkTable("Address", currentAddress);
+        Utils.checkTable("State and City", state + " " + city);
 
     }
 
