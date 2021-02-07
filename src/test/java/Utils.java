@@ -14,10 +14,6 @@ public class Utils {
         $$(".table-responsive tr").filterBy(text(checkname)).shouldHave(texts(filename));
     }
 
-    public static void setText(String s, String fieldName) {
-        $(s).setValue(fieldName);
-    }
-
     public static int generateRandomInt(int min, int max) {
         Random r = new Random();
         return r.nextInt((max - min) + 1) + min;

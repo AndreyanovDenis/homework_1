@@ -81,11 +81,11 @@ public class PracticeFormTest extends BaseTest {
         city = Utils.getCityByState(state);
 
         //Заполняем поля
-        Utils.setText("#firstName", firstName);
-        Utils.setText("#lastName", lastName);
-        Utils.setText("#userEmail", email);
+        $("#firstName").setValue(firstName);
+        $("#lastName").setValue(lastName);
+        $("#userEmail").setValue(email);
         $("#genterWrapper").$(byText(this.gender)).click();
-        Utils.setText("#userNumber", phone);
+        $("#userNumber").setValue(phone);
 
         //Работа с календарем
         $("#dateOfBirthInput").click();
@@ -101,7 +101,7 @@ public class PracticeFormTest extends BaseTest {
         $("#uploadPicture").uploadFile(new File(filepath + filename));
 
         //Заполнение адреса
-        Utils.setText("#currentAddress", currentAddress);
+        $("#currentAddress").setValue(currentAddress);
         $("#react-select-3-input").setValue(state).pressEnter();
         $("#react-select-4-input").setValue(city).pressEnter();
 
