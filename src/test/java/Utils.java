@@ -10,8 +10,8 @@ import static com.codeborne.selenide.Selenide.$$;
 public class Utils {
 
 
-    public static void checkTable(String checkname, String filename) {
-        $$(".table-responsive tr").filterBy(text(checkname)).shouldHave(texts(filename));
+    public static void checkTable(String checkname, String actualResult) {
+        $$(".table-responsive tr").filterBy(text(checkname)).shouldHave(texts(actualResult));
     }
 
     public static int generateRandomInt(int min, int max) {
