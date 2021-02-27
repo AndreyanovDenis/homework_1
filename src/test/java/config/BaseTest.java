@@ -24,7 +24,6 @@ public class BaseTest {
             capabilities.setCapability("enableVideo", true);
             Configuration.browserCapabilities = capabilities;
             Configuration.remote = System.getProperty("remote_driver");
-            open("https://demoqa.com/automation-practice-form");
 
         }
 

@@ -9,6 +9,7 @@ import java.util.Random;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 
 public class PracticeFormTest extends BaseTest {
 
@@ -39,6 +40,7 @@ public class PracticeFormTest extends BaseTest {
 
     @Test
     void checkStudentRegistrationFormTest() {
+        open("https://demoqa.com/automation-practice-form");
         //Выбираем пол рандомно
         final String[] genderArray = {"Male", "Female", "Other"};
         Random random = new Random();
