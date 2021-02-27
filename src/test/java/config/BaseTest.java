@@ -23,7 +23,9 @@ public class BaseTest {
             capabilities.setCapability("enableVNC", true);
             capabilities.setCapability("enableVideo", true);
             Configuration.browserCapabilities = capabilities;
-            Configuration.remote = System.getProperty("remote_driver");
+            if(System.getProperty("remote.browser.url") != null)
+                Configuration.remote = "https://user1:1234@" + System.getProperty("remote.browser.url") + ":4444/wd/hub/";
+            Configuration.startMaximized = true;
 
         }
 
