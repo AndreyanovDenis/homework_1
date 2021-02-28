@@ -21,7 +21,6 @@ allure {
     }
 }
 
-
 dependencies {
     testImplementation (
             "com.codeborne:selenide:$selenideVersion",
@@ -40,7 +39,6 @@ tasks.withType(JavaCompile) {
 tasks.withType(Test) {
     systemProperties += System.properties
 }
-
 
 test {
     useJUnitPlatform()

@@ -15,21 +15,18 @@ public class BaseTest {
 
     @BeforeAll
     static void setup() {
-        addListener("AllureSelenide", new AllureSelenide());
-        Configuration.browser = System.getProperty("browser", "chrome");
-        if (System.getProperty("remote_driver") != null) {
-            // config for Java + Selenide
-            DesiredCapabilities capabilities = new DesiredCapabilities();
-            capabilities.setCapability("enableVNC", true);
-            capabilities.setCapability("enableVideo", true);
-            Configuration.browserCapabilities = capabilities;
-            if(System.getProperty("remote.browser.url") != null)
-                Configuration.remote = "https://user1:1234@" + System.getProperty("remote.browser.url") + ":4444/wd/hub/";
-            Configuration.startMaximized = true;
+        addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
 
-        }
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("enableVNC", true);
+        capabilities.setCapability("enableVideo", true);
 
+        Configuration.browserCapabilities = capabilities;
+        if(System.getProperty("remote.browser.url") != null)
+            Configuration.remote = "https://user1:1234@" + System.getProperty("remote.browser.url") + ":4444/wd/hub/";
+        Configuration.startMaximized = true;
     }
+
 
     @AfterEach
     public void afterEach() {
