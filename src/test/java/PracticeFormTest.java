@@ -21,7 +21,7 @@ public class PracticeFormTest extends BaseTest {
             phone = faker.phoneNumber().subscriberNumber(10),
             currentAddress = faker.address().fullAddress(),
             filename = "mem.jpg",
-            filepath = "src/test/resources/",
+            filepath = "src/test/resources/files/",
             gender,
             year,
             month,
@@ -195,7 +195,7 @@ public class PracticeFormTest extends BaseTest {
         $("#react-select-4-input").setValue(city).pressEnter();
 
         //Отправляем анкету
-        $("#submid").click();
+        $("#submit").click();
 
         //Проверяем заполнение анкеты
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
